@@ -132,7 +132,7 @@ namespace HRTech.Controllers
 			}
 			else
 			{
-				return NotFound(); 
+				return NotFound();
 			}
 		}
 	}
