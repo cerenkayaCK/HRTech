@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Ornek
+namespace HRTech
 {
     public class Sirket
     {

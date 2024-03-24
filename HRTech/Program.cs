@@ -8,6 +8,7 @@ namespace HRTech
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<HttpClient>();
 
             var app = builder.Build();
 

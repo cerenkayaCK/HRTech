@@ -1,0 +1,49 @@
+﻿@model IEnumerable<HRTech.Personel>
+@{
+    ViewData["Title"] = "Personel Listesi";
+}
+
+<h1>Personel Bilgileri</h1>
+
+@* <p>
+    <a asp-action="Create" class="btn btn-primary">Yeni Personel Ekle</a>
+</p> *@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Fotoğraf :</th>
+            <th>ID</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Doğum Tarihi</th>
+            <th>TC Kimlik No</th>
+            <th>E-Posta</th>
+            <th>Telefon</th>
+            <th>Maaş</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var personel in Model)
+        {
+            <tr>
+           
+                <td><img src="~/css/img/@personel.FotografYolu"/></td>
+                <td>@personel.Id</td>
+                <td>@personel.Ad</td>
+                <td>@personel.Soyad</td>
+                <td>@personel.DogumTarihi.ToShortDateString()</td>
+                <td>@personel.TcNo</td>
+                <td>@personel.Email</td>
+                <td>@personel.Telefon</td>
+                <td>@personel.Maas.ToString("C2")</td>
+                <td>
+                  @*   <a asp-action="Edit" asp-route-id="@personel.Id">Düzenle</a> |
+                    <a asp-action="Details" asp-route-id="@personel.Id">Detaylar</a> |
+                    <a asp-action="Delete" asp-route-id="@personel.Id">Sil</a> *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

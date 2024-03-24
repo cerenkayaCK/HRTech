@@ -1,6 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
 
-namespace Ornek
+using System.ComponentModel.DataAnnotations;
+
+namespace HRTech
 {
     public class Adres
     {

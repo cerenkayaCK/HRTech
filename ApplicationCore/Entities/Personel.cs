@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Ornek
+namespace HRTech
 {
     public class Personel
     {
@@ -38,7 +38,7 @@ namespace Ornek
         public DateTime IseGirisTarihi { get; set; }
 
         [GirisCikisTarihi]
-        public DateTime IstenCikisTarihi { get; set; }
+        public DateTime? IstenCikisTarihi { get; set; }
         public bool Aktiflik {  get; set; }
         public int MeslekId { get; set; }        
         public Meslek Meslek { get; set; } = null!;
