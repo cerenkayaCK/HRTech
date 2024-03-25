@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HRTech.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HRTech.Controllers
 {
@@ -28,12 +29,12 @@ namespace HRTech.Controllers
 			var response = await _httpClient.GetAsync($"https://localhost:7063/api/Personeller/{id}");
 			if (response.IsSuccessStatusCode)
 			{
-				var personel = await response.Content.ReadFromJsonAsync<Personel>();
+				var personel = await response.Content.ReadFromJsonAsync<PersonelViewModel>();
 				if (personel == null)
 				{
 					return NotFound();
 				}
-				return View(personel);
+				return View("Details", personel);
 			}
 			else
 			{
@@ -58,7 +59,7 @@ namespace HRTech.Controllers
 			var response = await _httpClient.GetAsync($"https://localhost:7063/api/Personeller/{id}");
 			if (response.IsSuccessStatusCode)
 			{
-				var personel = await response.Content.ReadFromJsonAsync<Personel>();
+				var personel = await response.Content.ReadFromJsonAsync<PersonelViewModel>();
 				if (personel == null)
 				{
 					return NotFound();
@@ -96,32 +97,32 @@ namespace HRTech.Controllers
 			return View(personel);
 		}
 
-		// GET: Personel/Delete/id
-		public async Task<IActionResult> Delete(int? id)
-		{
-			if (id == null)
-			{
-				return NotFound();
-			}
+        // GET: Personel/Delete/id
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-			var response = await _httpClient.GetAsync($"https://localhost:7063/api/Personeller/{id}");
-			if (response.IsSuccessStatusCode)
-			{
-				var personel = await response.Content.ReadFromJsonAsync<Personel>();
-				if (personel == null)
-				{
-					return NotFound();
-				}
-				return View(personel);
-			}
-			else
-			{
-				return NotFound();
-			}
-		}
+            var response = await _httpClient.GetAsync($"https://localhost:7063/api/Personeller/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                var personel = await response.Content.ReadFromJsonAsync<PersonelViewModel>();
+                if (personel == null)
+                {
+                    return NotFound();
+                }
+                return View(personel);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
 
-		// POST: Personel/Delete/id
-		[HttpPost, ActionName("Delete")]
+        // POST: Personel/Delete/id
+        [HttpPost, ActionName("Delete")]
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> DeleteConfirmed(int id)
 		{
